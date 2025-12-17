@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Volume Bangun Ruang</title>
+</head>
+<body>
+    <h1>Menghitung Volume Bangun Ruang</h1>
+    
+    <!-- Balok -->
+    <h2>Balok</h2>
+    <label for="panjangBalok">Panjang:</label>
+    <input type="number" id="panjangBalok" step="any"><br>
+    <label for="lebarBalok">Lebar:</label>
+    <input type="number" id="lebarBalok" step="any"><br>
+    <label for="tinggiBalok">Tinggi:</label>
+    <input type="number" id="tinggiBalok" step="any"><br>
+    <button onclick="hitungBalok()">Hitung Volume</button>
+    
+    <!-- Tabung -->
+    <h2>Tabung</h2>
+    <label for="jejariTabung">Jejari:</label>
+    <input type="number" id="jejariTabung" step="any"><br>
+    <label for="tinggiTabung">Tinggi:</label>
+    <input type="number" id="tinggiTabung" step="any"><br>
+    <button onclick="hitungTabung()">Hitung Volume</button>
+    
+    <!-- Bola -->
+    <h2>Bola</h2>
+    <label for="jejariBola">Jejari:</label>
+    <input type="number" id="jejariBola" step="any"><br>
+    <button onclick="hitungBola()">Hitung Volume</button>
+    
+    <!-- Prisma Segitiga -->
+    <h2>Prisma Segitiga</h2>
+    <label for="tinggiAlasPrisma">Tinggi Alas:</label>
+    <input type="number" id="tinggiAlasPrisma" step="any"><br>
+    <label for="panjangAlasPrisma">Panjang Alas:</label>
+    <input type="number" id="panjangAlasPrisma" step="any"><br>
+    <label for="tinggiPrisma">Tinggi Prisma:</label>
+    <input type="number" id="tinggiPrisma" step="any"><br>
+    <button onclick="hitungPrisma()">Hitung Volume</button>
+    
+    <!-- Kerucut -->
+    <h2>Kerucut</h2>
+    <label for="jejariKerucut">Jejari Alas:</label>
+    <input type="number" id="jejariKerucut" step="any"><br>
+    <label for="tinggiKerucut">Tinggi Kerucut:</label>
+    <input type="number" id="tinggiKerucut" step="any"><br>
+    <button onclick="hitungKerucut()">Hitung Volume</button>
+    
+    <script>
+        function hitungBalok() {
+            let panjang = parseFloat(document.getElementById('panjangBalok').value);
+            let lebar = parseFloat(document.getElementById('lebarBalok').value);
+            let tinggi = parseFloat(document.getElementById('tinggiBalok').value);
+            if (isNaN(panjang) || isNaN(lebar) || isNaN(tinggi)) {
+                alert("Masukkan nilai yang valid untuk semua input.");
+                return;
+            }
+            let volume = panjang * lebar * tinggi;
+            alert("Volume Balok: " + volume);
+        }
+        
+        function hitungTabung() {
+            let jejari = parseFloat(document.getElementById('jejariTabung').value);
+            let tinggi = parseFloat(document.getElementById('tinggiTabung').value);
+            if (isNaN(jejari) || isNaN(tinggi)) {
+                alert("Masukkan nilai yang valid untuk semua input.");
+                return;
+            }
+            let volume = 3.14 * jejari * jejari * tinggi;
+            alert("Volume Tabung: " + volume);
+        }
+        
+        function hitungBola() {
+            let jejari = parseFloat(document.getElementById('jejariBola').value);
+            if (isNaN(jejari)) {
+                alert("Masukkan nilai yang valid untuk jejari.");
+                return;
+            }
+            let volume = 3.14 * jejari * jejari * jejari;
+            alert("Volume Bola: " + volume);
+        }
+        
+        function hitungPrisma() {
+            let tinggiAlas = parseFloat(document.getElementById('tinggiAlasPrisma').value);
+            let panjangAlas = parseFloat(document.getElementById('panjangAlasPrisma').value);
+            let tinggiPrisma = parseFloat(document.getElementById('tinggiPrisma').value);
+            if (isNaN(tinggiAlas) || isNaN(panjangAlas) || isNaN(tinggiPrisma)) {
+                alert("Masukkan nilai yang valid untuk semua input.");
+                return;
+            }
+            let volume = 0.5 * tinggiAlas * panjangAlas * tinggiPrisma;
+            alert("Volume Prisma Segitiga: " + volume);
+        }
+        
+        function hitungKerucut() {
+            let jejari = parseFloat(document.getElementById('jejariKerucut').value);
+            let tinggi = parseFloat(document.getElementById('tinggiKerucut').value);
+            if (isNaN(jejari) || isNaN(tinggi)) {
+                alert("Masukkan nilai yang valid untuk semua input.");
+                return;
+            }
+            let volume = (1/3) * 3.14 * jejari * jejari * tinggi;
+            alert("Volume Kerucut: " + volume);
+        }
+    </script>
+</body>
+</html>
